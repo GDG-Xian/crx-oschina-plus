@@ -26,6 +26,7 @@
 	"content_scripts": [
 		{
 			"matches": ["http://www.oschina.net/translate/translate?id=*"],
+			"css": ["css/translate/contentstyle.css"],
 			"js": ["js/translate/contentscript.js"]
 		}
 	]
