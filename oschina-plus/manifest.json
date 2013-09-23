@@ -9,10 +9,6 @@
 		"48": "icon48.png"
 	},
 
-	"permissions": [
-		"tabs", "http://*.oschina.net/*"
-	],
-
 	"background": {
 		"scripts": ["js/event.js"],
 		"persistent": false
@@ -27,6 +23,14 @@
 		{
 			"matches": ["http://www.oschina.net/translate/translate?id=*"],
 			"js": ["js/translate/contentscript.js"]
+		},
+		{
+			"matches": ["http://www.oschina.net/translate/translate*"],
+			"css": ["css/translate/contentstyle.css"]
 		}
+	],
+
+	"permissions": [
+		"tabs", "http://*.oschina.net/*"
 	]
 }
