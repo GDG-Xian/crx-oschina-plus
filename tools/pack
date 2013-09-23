@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm oschina-plus.zip
+cd oschina-plus && zip oschina-plus.zip * && mv oschina-plus.zip ../
