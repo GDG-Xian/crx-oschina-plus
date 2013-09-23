@@ -1,6 +1,28 @@
-function doSaveDraft(evt) {
-	var textContent = document.getElementById('ta_p_content');
+var editor = document.querySelector('.ke-edit-iframe').contentWindow.document;
+
+function getTranslateId() {
+    var url = document.location.search;
+    return /id=(\d+)/.test(url) && RegExp.$1;
 }
+
+function editorHTML(content) {
+    if (content != undefined) {
+        editor.body.innerHTML = content;
+    } else {
+        return editor.body.innerHTML;
+    }
+}
+
+function saveDraft(evt) {
+    chrome.runtime.sendMessage({
+        action: 'save-draft',
+        translateId: getTranslateId(),
+        content: editorHTML()
+    }, function() {
+        alert('保存草稿成功！');
+    });
+}
+
 
 // 添加暂存翻译的额按钮
 var actionBar = document.querySelector('.Edit .Top .action');
@@ -10,4 +32,4 @@ btnDraft.href = 'javascript:void(0);';
 btnDraft.className = 'DRAFT_BUTTON';
 btnDraft.innerHTML = '保存草稿';
 actionBar.appendChild(btnDraft);
-actionBar.addEventListener('click', doSaveDraft, false);
+actionBar.addEventListener('click', saveDraft, false);
