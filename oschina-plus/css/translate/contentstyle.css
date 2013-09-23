@@ -2,11 +2,12 @@ a.DRAFT_BUTTON {
 	text-decoration: none;
 	background: #0A9225;
 	border: none;
-	color: #FFF;
+	color: #FFFFFF;
 	font-size: 18px;
 	padding: 4px 14px;
 	margin-right: 3px;
 }
+
 a.DRAFT_BUTTON:hover {
 	background: #10A82E;
 }
